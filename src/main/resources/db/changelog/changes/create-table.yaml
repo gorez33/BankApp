@@ -1,0 +1,310 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: root
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: UUID
+
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: integer(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: root
+      changes:
+        - createTable:
+            tableName: manager
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 3
+      author: root
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: manager_id
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(70)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: integer(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: interest_rate
+                  type: decimal(6,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: limit
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 4
+      author: root
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: manager_id
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: tax_code
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(80)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 5
+      author: root
+      changes:
+        - createTable:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: debit_account_id
+                  type: UUID
+
+                  constraints:
+                    nullable: false
+              - column:
+                  name: credit_account_id
+                  type: UUID
+
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(12.4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 6
+      author: root
+      changes:
+        - createTable:
+            tableName: agreement
+            columns:
+              - column:
+                  name: id
+                  type: integer
+
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_id
+                  type: UUID
+
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: integer
+
+                  constraints:
+                    nullable: false
+              - column:
+                  name: interest_rate
+                  type: decimal(6,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sum
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false

@@ -1,0 +1,20 @@
+spring:
+  main:
+    banner-mode: off
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/bankdb
+    username: root
+    password: Q.4440111w
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.yaml
+
+app:
+  server:
+    url: localhost:8080

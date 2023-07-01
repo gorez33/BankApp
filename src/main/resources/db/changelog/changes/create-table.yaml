@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: account
@@ -56,7 +56,7 @@ databaseChangeLog:
                     nullable: false
   - changeSet:
       id: 2
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: manager
@@ -95,7 +95,7 @@ databaseChangeLog:
                     nullable: false
   - changeSet:
       id: 3
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: product
@@ -149,7 +149,7 @@ databaseChangeLog:
                     nullable: false
   - changeSet:
       id: 4
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: client
@@ -213,7 +213,7 @@ databaseChangeLog:
                     nullable: false
   - changeSet:
       id: 5
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: transaction
@@ -259,7 +259,7 @@ databaseChangeLog:
                     nullable: false
   - changeSet:
       id: 6
-      author: root
+      author: Yan
       changes:
         - createTable:
             tableName: agreement
@@ -267,7 +267,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: integer
-
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false

@@ -1,38 +1,44 @@
 package com.example.bankapp.entity;
 
 import jakarta.persistence.*;
-
 import lombok.*;
-import org.hibernate.annotations.UuidGenerator;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.UUID;
 
-//@Entity
-//@Table(name = "account")
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//public class Account {
-//    @Id
-//    @GeneratedValue(generator = "UUID",strategy = GenerationType.UUID)
-//    @Column(name = "id")
-//    private UUID id;
-//
-//    @Column(name = "name")
-//    private String name;
-//
-//    @Column(name = "client_id")
-//    private long client_id;
-//
-//    @Column(name = "type")
-//    private int type;
-//
-//    @Column(name = "status")
-//    private String status;
-//
-//
-//
-//}
+@Entity
+@Table(name = "account")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
+    private UUID id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "client_id")
+    private UUID clientId;
+
+    @Column(name = "type")
+    private int type;
+
+    @Column(name = "status")
+    private int status;
+
+    @Column(name = "balance")
+    private BigDecimal balance;
+
+    @Column(name = "currency_code")
+    private int currencyCode;
+
+    @Column(name = "created_at")
+    private Timestamp createdAt;
+
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
+}

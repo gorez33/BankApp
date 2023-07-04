@@ -1,60 +1,5 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
-      author: Yan
-      changes:
-        - createTable:
-            tableName: account
-            columns:
-              - column:
-                  name: id
-                  type: UUID
-
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: client_id
-                  type: UUID
-
-                  constraints:
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(100)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: type
-                  type: integer(1)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: status
-                  type: integer(1)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: balance
-                  type: decimal(15,2)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: currency_code
-                  type: integer(2)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: created_at
-                  type: timestamp
-                  constraints:
-                    nullable: false
-              - column:
-                  name: updated_at
-                  type: timestamp
-                  constraints:
-                    nullable: false
-  - changeSet:
       id: 2
       author: Yan
       changes:
@@ -66,6 +11,7 @@ databaseChangeLog:
                   type: integer
                   autoIncrement: true
                   constraints:
+                    unique: true
                     primaryKey: true
                     nullable: false
               - column:
@@ -94,60 +40,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
   - changeSet:
-      id: 3
-      author: Yan
-      changes:
-        - createTable:
-            tableName: product
-            columns:
-              - column:
-                  name: id
-                  type: integer
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: manager_id
-                  type: integer
-                  constraints:
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(70)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: status
-                  type: integer(1)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: currency_code
-                  type: integer(2)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: interest_rate
-                  type: decimal(6,4)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: limit
-                  type: int
-                  constraints:
-                    nullable: false
-              - column:
-                  name: created_at
-                  type: timestamp
-                  constraints:
-                    nullable: false
-              - column:
-                  name: update_at
-                  type: timestamp
-                  constraints:
-                    nullable: false
-  - changeSet:
       id: 4
       author: Yan
       changes:
@@ -157,8 +49,8 @@ databaseChangeLog:
               - column:
                   name: id
                   type: UUID
-
                   constraints:
+                    unique: true
                     primaryKey: true
                     nullable: false
               - column:
@@ -166,6 +58,8 @@ databaseChangeLog:
                   type: integer
                   constraints:
                     nullable: false
+                    foreignKeyName: manager_id
+                    references: manager(id)
               - column:
                   name: status
                   type: integer(1)
@@ -212,6 +106,119 @@ databaseChangeLog:
                   constraints:
                     nullable: false
   - changeSet:
+      id: 1
+      author: Yan
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    unique: true
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: client_id
+                    references: client(id)
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: integer(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 3
+      author: Yan
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    unique: true
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: manager_id
+                  type: integer
+                  constraints:
+                    nullable: false
+                    foreignKeyName: manager_id_fk
+                    references: manager(id)
+              - column:
+                  name: name
+                  type: varchar(70)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: integer(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: integer(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: interest_rate
+                  type: decimal(6,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: limit
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
       id: 5
       author: Yan
       changes:
@@ -221,22 +228,24 @@ databaseChangeLog:
               - column:
                   name: id
                   type: UUID
-
                   constraints:
+                    unique: true
                     primaryKey: true
                     nullable: false
               - column:
                   name: debit_account_id
                   type: UUID
-
                   constraints:
                     nullable: false
+                    foreignKeyName: transaction_debit_account_id_fk
+                    references: account(id)
               - column:
                   name: credit_account_id
                   type: UUID
-
                   constraints:
                     nullable: false
+                    foreignKeyName: transaction_credit_account_id_fk
+                    references: account(id)
               - column:
                   name: type
                   type: integer(1)
@@ -269,20 +278,23 @@ databaseChangeLog:
                   type: integer
                   autoIncrement: true
                   constraints:
+                    unique: true
                     primaryKey: true
                     nullable: false
               - column:
                   name: account_id
                   type: UUID
-
                   constraints:
                     nullable: false
+                    foreignKeyName: account_id
+                    references: account(id)
               - column:
                   name: product_id
                   type: integer
-
                   constraints:
                     nullable: false
+                    foreignKeyName: product_id
+                    references: product(id)
               - column:
                   name: interest_rate
                   type: decimal(6,4)

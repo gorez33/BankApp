@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -41,4 +42,14 @@ public class Account {
 
     @Column(name = "updated_at")
     private Timestamp updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client;
+
+    @OneToMany(mappedBy = "debitAccount")
+    private List<Transaction> transactionDebit;
+
+    @OneToMany(mappedBy = "creditAccount")
+    private List<Transaction> transactionCredit;
 }

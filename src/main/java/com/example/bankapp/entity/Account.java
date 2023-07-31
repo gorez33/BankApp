@@ -49,7 +49,7 @@ public class Account {
     private Client client;
 
     @OneToMany(mappedBy = "debitAccount")
-    private List<Transaction> transactionDebit;
+    private List<Transaction> transactionDebit; //
 
     @OneToMany(mappedBy = "creditAccount")
     private List<Transaction> transactionCredit;

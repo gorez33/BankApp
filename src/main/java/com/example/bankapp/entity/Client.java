@@ -5,8 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "client")
@@ -19,9 +24,6 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-
-    @Column(name = "manager_id")
-    private int managerId;
 
     @Column(name = "status")
     private int status;
@@ -49,4 +51,25 @@ public class Client {
 
     @Column(name = "updated_at")
     private Timestamp updatedAt;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY,
+            orphanRemoval = true, cascade = {MERGE, PERSIST, REFRESH})
+    private List<Account> accountList;
+
+    @ManyToOne()
+    @JoinColumn(name = "manager_id", columnDefinition = "id")
+    private Manager manager;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(taxCode, client.taxCode) && Objects.equals(email, client.email) && Objects.equals(phone, client.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taxCode, email, phone);
+    }
 }

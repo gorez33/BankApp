@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -22,12 +24,6 @@ public class Transaction {
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "debit_account_id")
-    private UUID debitAccountId;
-
-    @Column(name = "credit_account_id")
-    private UUID creditAccountId;
-
     @Column(name = "type")
     private int type;
 
@@ -40,4 +36,24 @@ public class Transaction {
     @Column(name = "created_at")
     private Timestamp createdAt;
 
+    @ManyToOne()
+    @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
+    private Account creditAccount;
+
+    @ManyToOne()
+    @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
+    private Account debitAccount;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

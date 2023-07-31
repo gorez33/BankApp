@@ -2,10 +2,14 @@ package com.example.bankapp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "account")
@@ -21,9 +25,6 @@ public class Account {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "client_id")
-    private UUID clientId;
 
     @Column(name = "type")
     private int type;
@@ -43,7 +44,7 @@ public class Account {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @ManyToOne
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH})
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
 
@@ -52,4 +53,21 @@ public class Account {
 
     @OneToMany(mappedBy = "creditAccount")
     private List<Transaction> transactionCredit;
+
+    @OneToOne(mappedBy = "account", cascade = ALL)
+    private Agreement agreement;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(name, account.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
+

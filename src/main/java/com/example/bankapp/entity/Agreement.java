@@ -5,9 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "agreement")
@@ -20,12 +24,6 @@ public class Agreement {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-
-    @Column(name = "account_id")
-    private UUID accountId;
-
-    @Column(name = "product_id")
-    private int productId;
 
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
@@ -42,4 +40,24 @@ public class Agreement {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH})
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
+
+    @OneToOne()
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agreement agreement = (Agreement) o;
+        return Objects.equals(id, agreement.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

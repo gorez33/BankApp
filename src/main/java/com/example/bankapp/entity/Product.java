@@ -5,8 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "product")
@@ -20,11 +26,14 @@ public class Product {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "manager_id")
-    private int manageId;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "status")
     private int status;
+
+    @Column(name = "currency_code")
+    private BigDecimal currencyCode;
 
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
@@ -37,4 +46,15 @@ public class Product {
 
     @Column(name = "updated_at")
     private Timestamp updatedAt;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "manager_product",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "manager_id"))
+    private Set<Manager> managerSet = new HashSet<>();
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,
+            orphanRemoval = true, cascade = {MERGE, PERSIST, REFRESH})
+    private List<Agreement> agreementList;
 }

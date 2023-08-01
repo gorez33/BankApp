@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
+      id: insert test data into managers table
       author: Yan
       changes:
         - insert:
@@ -8,7 +8,6 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 999e4567-e89b-12d3-a456-426655440000
               - column:
                   name: first_name
                   value: Robert
@@ -23,13 +22,40 @@ databaseChangeLog:
                   value: 04.05.2023
               - column:
                   name: updated_at
-                  value: 03.05.2023
+                  value: 15.08.2023
+        - insert:
+            tableName: manager
+            columns:
+              - column:
+                  name: id
+              - column:
+                  name: first_name
+                  value: Stefanie
+              - column:
+                  name: last_name
+                  value: Koh
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: created_at
+                  value: 04.05.2022
+              - column:
+                  name: updated_at
+                  value: 03.10.2023
+  - changeSet:
+      id: insert test data into clients table
+      author: Yan
+      changes:
         - insert:
             tableName: client
             columns:
               - column:
                   name: id
                   value: 223e4999-e89b-12d3-a456-426655440000
+              - column:
+                  name: manager_id
+                  value: 1
               - column:
                   name: status
                   value: active
@@ -46,13 +72,13 @@ databaseChangeLog:
                   name: email
                   value: yuli12@gmail.com
               - column:
-                  name: adress
+                  name: address
                   value: Goalstr. 2
               - column:
                   name: phone
                   value: +49-523-4215
               - column:
-                  name: create_at
+                  name: created_at
                   value: 20.04.2023
               - column:
                   name: updated_at
@@ -63,6 +89,9 @@ databaseChangeLog:
               - column:
                   name: id
                   value: 223e4999-e89b-12d3-a456-426655440550
+              - column:
+                  name: manager_id
+                  value: 2
               - column:
                   name: status
                   value: active
@@ -79,23 +108,30 @@ databaseChangeLog:
                   name: email
                   value: walter.21@gmail.com
               - column:
-                  name: adress
+                  name: address
                   value: Emsstr. 2
               - column:
                   name: phone
                   value: +49-523-4421
               - column:
-                  name: create_at
+                  name: created_at
                   value: 13.04.2023
               - column:
                   name: updated_at
                   value: 13.02.2023
+  - changeSet:
+      id: insert test data into accounts table
+      author: Yan
+      changes:
         - insert:
             tableName: account
             columns:
               - column:
                   name: id
                   value: 223e4499-e89b-12d3-a456-426655440550
+              - column:
+                  name: client_id
+                  value: 223e4999-e89b-12d3-a456-426655440000
               - column:
                   name: name
                   value: DD32
@@ -124,6 +160,9 @@ databaseChangeLog:
                   name: id
                   value: 223e4499-e89b-12d3-d456-426655440550
               - column:
+                  name: client_id
+                  value: 223e4999-e89b-12d3-a456-426655440000
+              - column:
                   name: name
                   value: DD33
               - column:
@@ -151,6 +190,9 @@ databaseChangeLog:
                   name: id
                   value: 413e4499-e89b-12d3-d456-426655440550
               - column:
+                  name: client_id
+                  value: 223e4999-e89b-12d3-a456-426655440550
+              - column:
                   name: name
                   value: DD33
               - column:
@@ -171,14 +213,22 @@ databaseChangeLog:
               - column:
                   name: updated_at
                   value: 05.06.2021
+  - changeSet:
+      id: insert test data into products table
+      author: Yan
+      changes:
         - insert:
             tableName: product
             columns:
               - column:
                   name: id
+                  value: 1
               - column:
                   name: manager_id
                   value: 2
+              - column:
+                 name: name
+                 value: deposit
               - column:
                   name: status
                   value: active
@@ -202,9 +252,13 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
+                  value: 2
               - column:
                   name: manager_id
                   value: 1
+              - column:
+                  name: name
+                  value: credit
               - column:
                   name: status
                   value: active
@@ -223,5 +277,140 @@ databaseChangeLog:
               - column:
                   name: updated_at
                   value: 16.11.2023
+  - changeSet:
+      id: insert test data into agreements table
+      author: Yan
+      changes:
+        - insert:
+            tableName: agreement
+            columns:
+              - column:
+                  name: id
+              - column:
+                  name: account_id
+                  value: 413e4499-e89b-12d3-d456-426655440550
+              - column:
+                  name: product_id
+                  value: 1
+              - column:
+                  name: interest_rate
+                  value: 3.3
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: sum
+                  value: 3000
+              - column:
+                  name: created_at
+                  value: 10.04.2023
+              - column:
+                  name: updated_at
+                  value: 03.07.2023
+        - insert:
+            tableName: agreement
+            columns:
+              - column:
+                  name: id
+              - column:
+                  name: account_id
+                  value: 223e4499-e89b-12d3-d456-426655440550
+              - column:
+                  name: product_id
+                  value: 2
+              - column:
+                  name: interest_rate
+                  value: 5.5
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: sum
+                  value: 15000
+              - column:
+                  name: created_at
+                  value: 10.04.2020
+              - column:
+                  name: updated_at
+                  value: 03.07.2022
+        - insert:
+            tableName: agreement
+            columns:
+              - column:
+                  name: id
+              - column:
+                  name: account_id
+                  value: 223e4499-e89b-12d3-a456-426655440550
+              - column:
+                  name: product_id
+                  value: 2
+              - column:
+                  name: interest_rate
+                  value: 7.3
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: sum
+                  value: 2000
+              - column:
+                  name: created_at
+                  value: 10.04.2022
+              - column:
+                  name: updated_at
+                  value: 03.04.2023
+  - changeSet:
+      id: insert test data into transactions table
+      author: Yan
+      changes:
+        - insert:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  value: e3b2611a-6ae6-429c-8232-8f1103461824
+              - column:
+                  name: debit_account_id
+                  value: 223e4499-e89b-12d3-a456-426655440550
+              - column:
+                  name: credit_account_id
+                  value: 413e4499-e89b-12d3-d456-426655440550
+              - column:
+                  name: type
+                  value: approved
+              - column:
+                  name: amount
+                  value: 4000
+              - column:
+                  name: description
+                  value: Payment by agreement 01 from 01.06.22
+              - column:
+                  name: created_at
+                  value: 01.06.22
+        - insert:
+            tableName: transaction
+            columns:
+              - column:
+                  name: id
+                  value: 5b6665d8-c327-4b2e-a524-74c63cbe9624
+              - column:
+                  name: debit_account_id
+                  value: 413e4499-e89b-12d3-d456-426655440550
+              - column:
+                  name: credit_account_id
+                  value: 223e4499-e89b-12d3-a456-426655440550
+              - column:
+                  name: type
+                  value: approved
+              - column:
+                  name: amount
+                  value: 8000
+              - column:
+                  name: description
+                  value: Payment by agreement 01 from 01.02.23
+              - column:
+                  name: created_at
+                  value: 01.02.23
+
 
 

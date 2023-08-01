@@ -26,7 +26,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: status
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
@@ -62,7 +62,7 @@ databaseChangeLog:
                     references: manager(id)
               - column:
                   name: status
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
@@ -133,12 +133,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: type
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
                   name: status
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
@@ -148,7 +148,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: currency_code
-                  type: integer(2)
+                  type: varchar(8)
                   constraints:
                     nullable: false
               - column:
@@ -190,12 +190,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: status
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
                   name: currency_code
-                  type: integer(2)
+                  type: varchar(8)
                   constraints:
                     nullable: false
               - column:
@@ -214,7 +214,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: update_at
+                  name: updated_at
                   type: timestamp
                   constraints:
                     nullable: false
@@ -248,7 +248,7 @@ databaseChangeLog:
                     references: account(id)
               - column:
                   name: type
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:
@@ -302,7 +302,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: status
-                  type: integer(1)
+                  type: varchar(16)
                   constraints:
                     nullable: false
               - column:

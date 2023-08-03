@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, UUID> {
-    @Query("SELECT a from Account a where a.status = ?1")
+    @Query("SELECT a FROM Account a where a.status = ?1")
     List<Account> getAllAccountsWhereStatusIs (String status);
 
     @Query("SELECT a FROM Account a JOIN a.agreement ag JOIN ag.product p WHERE p.id = :productId AND a.status = :status")

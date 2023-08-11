@@ -34,7 +34,7 @@ public class Manager {
     private String lastName;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "created_at")
     private Timestamp createdAt;

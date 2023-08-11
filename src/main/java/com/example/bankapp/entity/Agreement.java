@@ -29,7 +29,7 @@ public class Agreement {
     private BigDecimal interestRate;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "sum")
     private BigDecimal sum;

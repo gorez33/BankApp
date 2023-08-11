@@ -26,7 +26,7 @@ public class Client {
     private UUID id;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "tax_code")
     private String taxCode;

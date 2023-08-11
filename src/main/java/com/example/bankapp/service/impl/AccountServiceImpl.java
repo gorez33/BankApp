@@ -18,25 +18,26 @@ public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
     private final AccountRepository accountRepository;
 
+
     @Override
-    public AccountDTO getAccountByName(String name) {
+    public List<AccountDTO> getAllAccountByStatus(String name) {
+
         return null;
     }
-
-
 
     @Override
     public List<AccountDTO> getAllAccounts() {
         List<Account> accountList = accountRepository.findAllAccount();
-            if (accountList == null){
-                throw new AccountNotFoundException(ErrorMessage.ACCOUNTS_NOT_FOUND);
-            }else {
-        return accountMapper.toDTOList(accountList);
+        if (accountList == null) {
+            throw new AccountNotFoundException(ErrorMessage.ACCOUNTS_NOT_FOUND);
+        } else {
+            return accountMapper.toDTOList(accountList);
+        }
     }
-}
 
     @Override
-    public AccountDTO getAccountById(String id) {
+    public List<Account> getAccountsWhereProductIdIsAndStatusIs(int productId, String status) {
         return null;
     }
+
 }

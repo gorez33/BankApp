@@ -25,7 +25,7 @@ public class Transaction {
     private UUID id;
 
     @Column(name = "type")
-    private int type;
+    private String type;
 
     @Column(name = "amount")
     private BigDecimal amount;

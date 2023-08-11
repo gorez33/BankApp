@@ -6,7 +6,7 @@ import com.example.bankapp.entity.Account;
 import java.util.List;
 
 public interface AccountService {
-    AccountDTO getAccountByName (String name);
+    List<AccountDTO> getAllAccountByStatus (String name);
     List<AccountDTO> getAllAccounts();
-    AccountDTO getAccountById(String id);
+    List<Account> getAccountsWhereProductIdIsAndStatusIs (int productId, String status);
 }

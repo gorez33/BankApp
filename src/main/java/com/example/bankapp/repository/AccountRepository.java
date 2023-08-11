@@ -15,7 +15,7 @@ public interface AccountRepository extends JpaRepository<Account, UUID> {
     List<Account> getAllAccountsWhereStatusIs (String status);
 
     @Query("SELECT a FROM Account a JOIN a.agreement ag JOIN ag.product p WHERE p.id = :productId AND a.status = :status")
-    List<Account> findAccountsWhereProductIdIsAndStatusIs(@Param("productId") int productId, @Param("status") int status);
+    List<Account> findAccountsWhereProductIdIsAndStatusIs(@Param("productId") int productId, @Param("status") String status);
 
     @Query("SELECT a FROM Account a")
     List<Account> findAllAccount();

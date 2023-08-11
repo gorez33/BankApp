@@ -30,7 +30,7 @@ public class Product {
     private String name;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "currency_code")
     private BigDecimal currencyCode;

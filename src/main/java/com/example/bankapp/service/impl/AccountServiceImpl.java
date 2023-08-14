@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -20,15 +21,19 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
-    public List<AccountDTO> getAllAccountByStatus(String name) {
-
-        return null;
+    public List<AccountDTO> getAllAccountByStatus(String status) {
+        List<Account> accountStatus = accountRepository.getAllAccountsWhereStatusIs(status);
+        if (accountStatus == null || accountStatus.isEmpty()){
+            throw new AccountNotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_STATUS);
+        }else {
+            return accountMapper.toDTOList(accountStatus);
+        }
     }
 
     @Override
     public List<AccountDTO> getAllAccounts() {
         List<Account> accountList = accountRepository.findAllAccount();
-        if (accountList == null) {
+        if (accountList == null || accountList.isEmpty()) {
             throw new AccountNotFoundException(ErrorMessage.ACCOUNTS_NOT_FOUND);
         } else {
             return accountMapper.toDTOList(accountList);
@@ -36,8 +41,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getAccountsWhereProductIdIsAndStatusIs(int productId, String status) {
-        return null;
+    public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(UUID productId, String status) {
+        List<Account> accounts = accountRepository.findAccountsWhereProductIdIsAndStatusIs(productId, status);
+        if (accounts.isEmpty()) {
+            throw new AccountNotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_ID_AND_STATUS);
+        }
+        return accountMapper.toDTOList(accounts);
     }
 
 }

@@ -55,6 +55,7 @@ public class Account {
     private List<Transaction> transactionCredit;
 
     @OneToOne(mappedBy = "account", cascade = ALL)
+    @JoinColumn (name = "agreement_id", referencedColumnName = "id")
     private Agreement agreement;
 
     @Override

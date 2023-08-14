@@ -19,10 +19,10 @@ databaseChangeLog:
                   value: active
               - column:
                   name: created_at
-                  value: 04.05.2023
+                  value: 2019.03.04
               - column:
                   name: updated_at
-                  value: 15.08.2023
+                  value: 2020.09.09
         - insert:
             tableName: manager
             columns:
@@ -39,10 +39,10 @@ databaseChangeLog:
                   value: active
               - column:
                   name: created_at
-                  value: 04.05.2022
+                  value: 2022.05.13
               - column:
                   name: updated_at
-                  value: 03.10.2023
+                  value: 2023.07.09
   - changeSet:
       id: insert test data into clients table
       author: Yan
@@ -52,7 +52,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 223e4999-e89b-12d3-a456-426655440000
+                  value: 223e4999-e89b-12d3-a456-426655441111
               - column:
                   name: manager_id
                   value: 1
@@ -79,16 +79,16 @@ databaseChangeLog:
                   value: +49-523-4215
               - column:
                   name: created_at
-                  value: 20.04.2023
+                  value: 2020.09.17
               - column:
                   name: updated_at
-                  value: 19.04.2023
+                  value: 2022.01.24
         - insert:
             tableName: client
             columns:
               - column:
                   name: id
-                  value: 223e4999-e89b-12d3-a456-426655440550
+                  value: 223e4999-e89b-12d3-a456-426655445555
               - column:
                   name: manager_id
                   value: 2
@@ -115,10 +115,46 @@ databaseChangeLog:
                   value: +49-523-4421
               - column:
                   name: created_at
-                  value: 13.04.2023
+                  value: 2020.04.28
               - column:
                   name: updated_at
-                  value: 13.02.2023
+                  value: 2022.08.21
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  value: 223e4999-e89b-12d3-a456-426655445656
+              - column:
+                  name: manager_id
+                  value: 2
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: tax_code
+                  value: 241-111
+              - column:
+                  name: first_name
+                  value: Shubat
+              - column:
+                  name: last_name
+                  value: Azat
+              - column:
+                  name: email
+                  value: azat.21@gmail.com
+              - column:
+                  name: address
+                  value: Emsstr. 66
+              - column:
+                  name: phone
+                  value: +49-523-7788
+              - column:
+                  name: created_at
+                  value: 2019.04.28
+              - column:
+                  name: updated_at
+                  value: 2021.08.21
   - changeSet:
       id: insert test data into accounts table
       author: Yan
@@ -128,13 +164,13 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 223e4499-e89b-12d3-a456-426655440550
+                  value: 223e4499-e89b-12d3-a456-426655442222
               - column:
                   name: client_id
-                  value: 223e4999-e89b-12d3-a456-426655440000
+                  value: 223e4999-e89b-12d3-a456-426655445555
               - column:
                   name: name
-                  value: DD32
+                  value: PDD
               - column:
                   name: type
                   value: deposit
@@ -149,22 +185,22 @@ databaseChangeLog:
                   value: USD
               - column:
                   name: created_at
-                  value: 26.09.2020
+                  value: 2020.06.05
               - column:
                   name: updated_at
-                  value: 05.06.2021
+                  value: 2020.11.17
         - insert:
             tableName: account
             columns:
               - column:
                   name: id
-                  value: 223e4499-e89b-12d3-d456-426655440550
+                  value: 223e4499-e89b-12d3-d456-426655443333
               - column:
                   name: client_id
-                  value: 223e4999-e89b-12d3-a456-426655440000
+                  value: 223e4999-e89b-12d3-a456-426655441111
               - column:
                   name: name
-                  value: DD33
+                  value: DPS
               - column:
                   name: type
                   value: deposit
@@ -179,22 +215,22 @@ databaseChangeLog:
                   value: EUR
               - column:
                   name: created_at
-                  value: 26.09.2021
+                  value: 2021.10.20
               - column:
                   name: updated_at
-                  value: 05.10.2021
+                  value: 2022.01.02
         - insert:
             tableName: account
             columns:
               - column:
                   name: id
-                  value: 413e4499-e89b-12d3-d456-426655440550
+                  value: 413e4499-e89b-12d3-d456-426655448888
               - column:
                   name: client_id
-                  value: 223e4999-e89b-12d3-a456-426655440550
+                  value: 223e4999-e89b-12d3-a456-426655445555
               - column:
                   name: name
-                  value: DD33
+                  value: DP
               - column:
                   name: type
                   value: deposit
@@ -209,10 +245,40 @@ databaseChangeLog:
                   value: EUR
               - column:
                   name: created_at
-                  value: 26.03.2019
+                  value: 2019.07.05
               - column:
                   name: updated_at
-                  value: 05.06.2021
+                  value: 2020.09.11
+        - insert:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  value: 413e4499-e89b-12d3-d456-426655441212
+              - column:
+                  name: client_id
+                  value: 223e4999-e89b-12d3-a456-426655445656
+              - column:
+                  name: name
+                  value: DPPDw
+              - column:
+                  name: type
+                  value: deposit
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: balance
+                  value: 100_000
+              - column:
+                  name: currency_code
+                  value: EUR
+              - column:
+                  name: created_at
+                  value: 2016.07.05
+              - column:
+                  name: updated_at
+                  value: 2020.01.19
   - changeSet:
       id: insert test data into products table
       author: Yan
@@ -243,10 +309,10 @@ databaseChangeLog:
                   value: 100_000
               - column:
                   name: created_at
-                  value: 02.01.2023
+                  value: 2020.03.23
               - column:
                   name: updated_at
-                  value: 16.04.2023
+                  value: 2021.06.20
         - insert:
             tableName: product
             columns:
@@ -273,10 +339,70 @@ databaseChangeLog:
                   value: 500_000
               - column:
                   name: created_at
-                  value: 02.04.2023
+                  value: 2023.02.04
               - column:
                   name: updated_at
-                  value: 16.11.2023
+                  value: 2023.05.11
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: manager_id
+                  value: 2
+              - column:
+                  name: name
+                  value: credit
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: currency_code
+                  value: USD
+              - column:
+                  name: interest_rate
+                  value: 8.5
+              - column:
+                  name: limit
+                  value: 5_000
+              - column:
+                  name: created_at
+                  value: 2020.02.04
+              - column:
+                  name: updated_at
+                  value: 2023.05.11
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: manager_id
+                  value: 1
+              - column:
+                  name: name
+                  value: credit
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: currency_code
+                  value: EUR
+              - column:
+                  name: interest_rate
+                  value: 2.5
+              - column:
+                  name: limit
+                  value: 8_000
+              - column:
+                  name: created_at
+                  value: 2021.02.04
+              - column:
+                  name: updated_at
+                  value: 2023.05.11
   - changeSet:
       id: insert test data into agreements table
       author: Yan
@@ -288,7 +414,7 @@ databaseChangeLog:
                   name: id
               - column:
                   name: account_id
-                  value: 413e4499-e89b-12d3-d456-426655440550
+                  value: 223e4499-e89b-12d3-d456-426655443333
               - column:
                   name: product_id
                   value: 1
@@ -303,10 +429,10 @@ databaseChangeLog:
                   value: 3000
               - column:
                   name: created_at
-                  value: 10.04.2023
+                  value: 2022.01.05
               - column:
                   name: updated_at
-                  value: 03.07.2023
+                  value: 2022.06.01
         - insert:
             tableName: agreement
             columns:
@@ -314,7 +440,7 @@ databaseChangeLog:
                   name: id
               - column:
                   name: account_id
-                  value: 223e4499-e89b-12d3-d456-426655440550
+                  value: 413e4499-e89b-12d3-d456-426655448888
               - column:
                   name: product_id
                   value: 2
@@ -329,10 +455,10 @@ databaseChangeLog:
                   value: 15000
               - column:
                   name: created_at
-                  value: 10.04.2020
+                  value: 2020.04.10
               - column:
                   name: updated_at
-                  value: 03.07.2022
+                  value: 2021.01.01
         - insert:
             tableName: agreement
             columns:
@@ -340,10 +466,10 @@ databaseChangeLog:
                   name: id
               - column:
                   name: account_id
-                  value: 223e4499-e89b-12d3-a456-426655440550
+                  value: 223e4499-e89b-12d3-a456-426655442222
               - column:
                   name: product_id
-                  value: 2
+                  value: 3
               - column:
                   name: interest_rate
                   value: 7.3
@@ -355,10 +481,36 @@ databaseChangeLog:
                   value: 2000
               - column:
                   name: created_at
-                  value: 10.04.2022
+                  value: 2022.02.02
               - column:
                   name: updated_at
-                  value: 03.04.2023
+                  value: 2023.03.03
+        - insert:
+            tableName: agreement
+            columns:
+              - column:
+                  name: id
+              - column:
+                  name: account_id
+                  value: 413e4499-e89b-12d3-d456-426655441212
+              - column:
+                  name: product_id
+                  value: 4
+              - column:
+                  name: interest_rate
+                  value: 1.3
+              - column:
+                  name: status
+                  value: active
+              - column:
+                  name: sum
+                  value: 8000
+              - column:
+                  name: created_at
+                  value: 2018.02.02
+              - column:
+                  name: updated_at
+                  value: 2023.03.03
   - changeSet:
       id: insert test data into transactions table
       author: Yan
@@ -371,22 +523,22 @@ databaseChangeLog:
                   value: e3b2611a-6ae6-429c-8232-8f1103461824
               - column:
                   name: debit_account_id
-                  value: 223e4499-e89b-12d3-a456-426655440550
+                  value: 413e4499-e89b-12d3-d456-426655448888
               - column:
                   name: credit_account_id
-                  value: 413e4499-e89b-12d3-d456-426655440550
+                  value: 223e4499-e89b-12d3-d456-426655443333
               - column:
                   name: type
                   value: approved
               - column:
                   name: amount
-                  value: 4000
+                  value: 400
               - column:
                   name: description
                   value: Payment by agreement 01 from 01.06.22
               - column:
                   name: created_at
-                  value: 01.06.22
+                  value: 2023.04.05
         - insert:
             tableName: transaction
             columns:
@@ -395,22 +547,22 @@ databaseChangeLog:
                   value: 5b6665d8-c327-4b2e-a524-74c63cbe9624
               - column:
                   name: debit_account_id
-                  value: 413e4499-e89b-12d3-d456-426655440550
+                  value: 223e4499-e89b-12d3-d456-426655443333
               - column:
                   name: credit_account_id
-                  value: 223e4499-e89b-12d3-a456-426655440550
+                  value: 223e4499-e89b-12d3-a456-426655442222
               - column:
                   name: type
                   value: approved
               - column:
                   name: amount
-                  value: 8000
+                  value: 800
               - column:
                   name: description
                   value: Payment by agreement 01 from 01.02.23
               - column:
                   name: created_at
-                  value: 01.02.23
+                  value: 2023.01.01
 
 
 

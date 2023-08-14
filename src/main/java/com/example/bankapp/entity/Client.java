@@ -40,8 +40,8 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "adress")
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "phone")
     private String phone;

@@ -44,7 +44,7 @@ public class Account {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH})
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
 
@@ -55,20 +55,8 @@ public class Account {
     private List<Transaction> transactionCredit;
 
     @OneToOne(mappedBy = "account", cascade = ALL)
-    @JoinColumn (name = "agreement_id", referencedColumnName = "id")
     private Agreement agreement;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(name, account.name);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
 }
 

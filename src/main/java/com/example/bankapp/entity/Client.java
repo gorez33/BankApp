@@ -60,16 +60,4 @@ public class Client {
     @JoinColumn(name = "manager_id", columnDefinition = "id")
     private Manager manager;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(taxCode, client.taxCode) && Objects.equals(email, client.email) && Objects.equals(phone, client.phone);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(taxCode, email, phone);
-    }
 }

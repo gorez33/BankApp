@@ -253,7 +253,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: amount
-                  type: decimal(12.4)
+                  type: decimal(12,4)
                   constraints:
                     nullable: false
               - column:

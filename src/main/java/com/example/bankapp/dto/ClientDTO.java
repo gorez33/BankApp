@@ -1,9 +1,9 @@
 package com.example.bankapp.dto;
 
-import org.antlr.v4.runtime.misc.NotNull;
 
-public record ClientCreateDTO(
-        @NotNull
+
+public record ClientDTO(
+
         String taxCode,
         String firstName,
         String lastName,

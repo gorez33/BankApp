@@ -8,5 +8,7 @@ import java.util.UUID;
 public interface AccountService {
     List<AccountDTO> getAllAccountByStatus (String status);
     List<AccountDTO> getAllAccounts();
-    List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs (UUID productId, String status);
+    List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs (int productId, String status);
+
+//    List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(int productId, String status);
 }

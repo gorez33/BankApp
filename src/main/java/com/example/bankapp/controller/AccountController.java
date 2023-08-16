@@ -16,7 +16,6 @@ public class AccountController {
     private final AccountService accountService;
 
     @GetMapping(path = "/all")
-    @ResponseStatus(HttpStatus.OK)
     public List<AccountDTO> getAllAccounts(){
         return accountService.getAllAccounts();
     }
@@ -25,9 +24,9 @@ public class AccountController {
     public List<AccountDTO> getAllAccountByStatus (@PathVariable("status")String status){
         return accountService.getAllAccountByStatus(status);
     }
-    @GetMapping(path = "/status/{status}/id{id}")
+    @GetMapping(path = "/id/{id}/status/{status}")
     @ResponseStatus(HttpStatus.OK)
-    public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs (@PathVariable UUID id, @PathVariable String status){
+    public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs (@PathVariable int id, @PathVariable("status") String status){
         return accountService.getAccountsWhereProductIdIsAndStatusIs(id,status);
     }
 }

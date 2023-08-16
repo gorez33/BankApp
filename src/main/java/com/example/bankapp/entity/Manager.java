@@ -22,8 +22,8 @@ import static jakarta.persistence.CascadeType.*;
 @Getter
 @Setter
 public class Manager {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 

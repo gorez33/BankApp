@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +40,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(UUID productId, String status) {
+    public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(int productId, String status) {
         List<Account> accounts = accountRepository.findAccountsWhereProductIdIsAndStatusIs(productId, status);
         if (accounts.isEmpty()) {
             throw new AccountNotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_ID_AND_STATUS);

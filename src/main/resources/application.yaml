@@ -4,14 +4,18 @@ spring:
     allow-bean-definition-overriding: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/bankdb
-    username: root
-    password: Q.4440111w
+    url: jdbc:postgresql://localhost:5432/bankdb
+    username: postgres
+    password: q4440111w
+   # url: jdbc:mysql://localhost:3306/bankdb
+    #username: root
+    #password: Q.4440111w
 
   jpa:
     show-sql: false
     hibernate:
       ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   liquibase:
     change-log: classpath:/db/changelog/changelog-master.yaml

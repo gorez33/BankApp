@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.UuidGenerator;
 
 public record AccountDTO(
-
+        String id,
         String name,
         String type,
         String status,

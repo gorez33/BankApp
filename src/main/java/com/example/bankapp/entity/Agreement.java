@@ -20,10 +20,10 @@ import static jakarta.persistence.CascadeType.*;
 @Getter
 @Setter
 public class Agreement {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
@@ -40,7 +40,7 @@ public class Agreement {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH})
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 

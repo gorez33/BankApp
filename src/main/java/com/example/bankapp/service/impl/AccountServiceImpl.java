@@ -18,6 +18,13 @@ public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
     private final AccountRepository accountRepository;
 
+    /**
+     * Retrieves a list of account DTOs based on the specified account status.
+     *
+     * @param status The status of accounts to retrieve.
+     * @return A list of {@link AccountDTO} objects corresponding to the given status.
+     * @throws AccountNotFoundException if no accounts with the specified status are found.
+     */
 
     @Override
     public List<AccountDTO> getAllAccountByStatus(String status) {
@@ -29,6 +36,13 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    /**
+     * Retrieves a list of all account DTOs.
+     *
+     * @return A list of all {@link AccountDTO} objects.
+     * @throws AccountNotFoundException if no accounts are found.
+     */
+
     @Override
     public List<AccountDTO> getAllAccounts() {
         List<Account> accountList = accountRepository.findAllAccount();
@@ -38,6 +52,15 @@ public class AccountServiceImpl implements AccountService {
             return accountMapper.toDTOList(accountList);
         }
     }
+
+    /**
+     * Retrieves a list of account DTOs based on the specified product ID and account status.
+     *
+     * @param productId The ID of the product associated with the accounts.
+     * @param status The status of accounts to retrieve.
+     * @return A list of {@link AccountDTO} objects corresponding to the given product ID and status.
+     * @throws AccountNotFoundException if no accounts with the specified product ID and status are found.
+     */
 
     @Override
     public List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(int productId, String status) {

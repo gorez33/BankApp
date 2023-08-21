@@ -10,5 +10,4 @@ public interface AccountService {
     List<AccountDTO> getAllAccounts();
     List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs (int productId, String status);
 
-//    List<AccountDTO> getAccountsWhereProductIdIsAndStatusIs(int productId, String status);
 }

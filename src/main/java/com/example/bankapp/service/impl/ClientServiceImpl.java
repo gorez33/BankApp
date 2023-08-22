@@ -44,6 +44,10 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<ClientDTO> getAllClientsByTransactionMoreThan(int transactionCount) {
-        return null;
+        List<Client> clientsTransaction = clientRepository.getAllClientsWhereTransactionMoreThan(transactionCount);
+        if (clientsTransaction == null || clientsTransaction.isEmpty()){
+            throw new ClientNotFoundException(ErrorMessage.CLIENT_NOT_FOUND_BY_TRANSACTION_MORE_THAN);
+        }
+        return clientMapper.toDTOList(clientsTransaction);
     }
 }

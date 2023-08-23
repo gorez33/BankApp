@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface ClientService {
-    List<ClientDTO> getAllClientsByStatusIsActive (String status);
+    List<ClientDTO> getAllClientsByStatusIsActive ();
+
     List<ClientDTO> getAllClientsByBalanceMoreThan (BigDecimal balance);
     List<ClientDTO> getAllClientsByTransactionMoreThan (int transactionCount);
 }

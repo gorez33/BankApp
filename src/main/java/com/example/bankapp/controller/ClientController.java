@@ -19,11 +19,11 @@ import java.util.List;
 public class ClientController {
     private final ClientService clientService;
 
-    @GetMapping(path = "/status{status}")
-    public List<ClientDTO> getAllClientsByStatusIsActive(@PathVariable("status")String status){
-        return clientService.getAllClientsByStatusIsActive(status);
+    @GetMapping(path = "/active")
+    public List<ClientDTO> getAllClientsByStatusIsActive(){
+        return clientService.getAllClientsByStatusIsActive();
     }
-    @GetMapping(path = "/balance{balance}")
+    @GetMapping(path = "/balance/{balance}")
     public List <ClientDTO> getAllClientsWhereBalanceMoreThan(@PathVariable("balance")BigDecimal balance){
         return clientService.getAllClientsByBalanceMoreThan(balance);
     }

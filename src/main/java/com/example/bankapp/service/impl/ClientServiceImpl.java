@@ -22,14 +22,16 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public List<ClientDTO> getAllClientsByStatusIsActive(String status) {
-        List<Client> clientStatus = clientRepository.getAllClientsWhereStatusIsActive("active");
+    public List<ClientDTO> getAllClientsByStatusIsActive() {
+        List<Client> clientStatus = clientRepository.getAllClientsWhereStatusIsActive();
         if (clientStatus == null || clientStatus.isEmpty()){
             throw new ClientNotFoundException(ErrorMessage.CLIENT_NOT_FOUND_BY_STATUS_ACTIVE);
         }else {
             return clientMapper.toDTOList(clientStatus);
         }
     }
+
+
 
     @Override
     public List<ClientDTO> getAllClientsByBalanceMoreThan(BigDecimal balance) {

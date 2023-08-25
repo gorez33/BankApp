@@ -18,12 +18,12 @@ public interface ClientRepository extends JpaRepository <Client, UUID> {
     @Query("SELECT c FROM Client c JOIN c.accountList a WHERE a.balance > :balance")
     List<Client> getAllClientsWhereBalanceMoreThan(@Param("balance") BigDecimal balance);
 
-    @Query("SELECT c FROM Client c " +
+    @Query("SELECT DISTINCT c FROM Client c " +
             "JOIN c.accountList a " +
             "JOIN a.transactionDebit tDebit " +
             "JOIN a.transactionCredit tCredit " +
-            "WHERE (SIZE(tDebit) + SIZE(tCredit)) > ?1")
-    List<Client> getAllClientsWhereTransactionMoreThan(int transactionCount);
+            "WHERE (SIZE(tDebit) + SIZE(tCredit)) > :transaction")
+    List<Client> getAllClientsWhereTransactionMoreThan(@Param("transaction") int transaction);
 
 
 }

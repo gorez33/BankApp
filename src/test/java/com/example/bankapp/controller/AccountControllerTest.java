@@ -41,7 +41,7 @@ class AccountControllerTest {
         List<AccountDTO> mockAccounts = new ArrayList<>();
         AccountDTO accountDTO = new AccountDTO("223e4499-e89b-12d3-a456-426655442222", "PDD", "deposit",
                 "active", "USD", "223e4999-e89b-12d3-a456-426655445555", "2",
-                "active", "2020-06-05", "2020-11-17");
+                "active");
 
         mockAccounts.add(accountDTO);
 
@@ -57,9 +57,7 @@ class AccountControllerTest {
                 .andExpect(jsonPath("$[0].currencyCode", is("USD")))
                 .andExpect(jsonPath("$[0].client_id", is("223e4999-e89b-12d3-a456-426655445555")))
                 .andExpect(jsonPath("$[0].manager_id", is("2")))
-                .andExpect(jsonPath("$[0].agreement_status", is("active")))
-                .andExpect(jsonPath("$[0].created_at", is("2020-06-05")))
-                .andExpect(jsonPath("$[0].updated_at", is("2020-11-17")));
+                .andExpect(jsonPath("$[0].agreement_status", is("active")));
         verify(accountService, times(1)).getAllAccounts();
     }
 

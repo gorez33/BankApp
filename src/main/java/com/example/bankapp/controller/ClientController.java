@@ -24,12 +24,12 @@ public class ClientController {
         return clientService.getAllClientsByStatusIsActive();
     }
     @GetMapping(path = "/balance/{balance}")
-    public List <ClientDTO> getAllClientsWhereBalanceMoreThan(@PathVariable("balance")BigDecimal balance){
+    public List<ClientDTO> getAllClientsWhereBalanceMoreThan(@PathVariable("balance")BigDecimal balance){
         return clientService.getAllClientsByBalanceMoreThan(balance);
     }
-    @GetMapping(path = "/transaction{transaction}")
-    public List<ClientDTO> getAllClientsByTransactionMoreThan(@PathVariable("transaction")int transactionCount){
-        return clientService.getAllClientsByTransactionMoreThan(transactionCount);
+    @GetMapping(path = "/transaction/{transaction}")
+    public List<ClientDTO> getAllClientsByTransactionMoreThan(@PathVariable("transaction")int transaction){
+        return clientService.getAllClientsByTransactionMoreThan(transaction);
     }
 
 }

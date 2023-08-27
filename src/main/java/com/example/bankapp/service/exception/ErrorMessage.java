@@ -13,4 +13,9 @@ public class ErrorMessage {
             CLIENT_NOT_FOUND_BY_BALANCE_MORE_THAN = "The client with such a balance will not be found";
     public static final String
             CLIENT_NOT_FOUND_BY_TRANSACTION_MORE_THAN = "The client with such a transaction will not be found";
+
+    public static final String MANAGER_NOT_FOUND_BY_ID = "Manager with this id was not found";
+    public static final String CLIENT_ALREADY_EXIST = "Client already exists";
+
+    public static final String MANAGER_NOT_FOUNDED = "Manager was not found by this name";
 }

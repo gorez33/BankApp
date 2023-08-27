@@ -12,6 +12,7 @@ public record ClientDTO(
         String lastName,
         String email,
         String address,
-        String phone
+        String phone,
+        String managerLastName
         ) {
 }

@@ -1,14 +1,14 @@
 package com.example.bankapp.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
-
 import static jakarta.persistence.CascadeType.*;
 
 @Entity

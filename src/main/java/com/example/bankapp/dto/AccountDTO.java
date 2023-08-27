@@ -1,7 +1,5 @@
 package com.example.bankapp.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.annotations.UuidGenerator;
 
 public record AccountDTO(
         String id,

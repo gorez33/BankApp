@@ -1,12 +1,9 @@
 package com.example.bankapp.controller;
 
+import com.example.bankapp.dto.ClientCreateDTO;
 import com.example.bankapp.dto.ClientDTO;
-import com.example.bankapp.entity.Client;
 import com.example.bankapp.service.ClientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -30,6 +27,11 @@ public class ClientController {
     @GetMapping(path = "/transaction/{transaction}")
     public List<ClientDTO> getAllClientsByTransactionMoreThan(@PathVariable("transaction")int transaction){
         return clientService.getAllClientsByTransactionMoreThan(transaction);
+    }
+
+    @PostMapping(path = "/create")
+    public ClientDTO createClient (@RequestBody ClientCreateDTO clientCreateDTO){
+        return clientService.createClient(clientCreateDTO);
     }
 
 }

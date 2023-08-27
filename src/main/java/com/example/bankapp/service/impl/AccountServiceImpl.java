@@ -1,5 +1,6 @@
 package com.example.bankapp.service.impl;
 
+import com.example.bankapp.dto.AccountCreateDTO;
 import com.example.bankapp.dto.AccountDTO;
 import com.example.bankapp.entity.Account;
 import com.example.bankapp.mapper.AccountMapper;
@@ -71,6 +72,14 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.toDTOList(accounts);
     }
 
+    @Override
+    public AccountDTO accountCreateDTO(AccountCreateDTO accountCreateDTO) {
+        Account account = new Account();
+        account.setName(accountCreateDTO.name());
+        account.setType(accountCreateDTO.type());
+        Account createdAccount = accountRepository.save(account);
+        return accountMapper.toDTO(createdAccount);
+    }
 
 
 }

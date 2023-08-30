@@ -8,14 +8,12 @@ import com.example.bankapp.mapper.ClientMapper;
 import com.example.bankapp.repository.ClientRepository;
 import com.example.bankapp.repository.ManagerRepository;
 import com.example.bankapp.service.ClientService;
-import com.example.bankapp.service.exception.ClientAlreadyExistException;
 import com.example.bankapp.service.exception.ClientNotFoundException;
 import com.example.bankapp.service.exception.ErrorMessage;
 import com.example.bankapp.service.exception.ManagerNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;

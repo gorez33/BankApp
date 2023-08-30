@@ -4,5 +4,4 @@ public record AccountCreateDTO(
         String name,
         String type
 ) {
-
 }

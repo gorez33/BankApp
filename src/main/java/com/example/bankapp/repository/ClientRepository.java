@@ -1,13 +1,10 @@
 package com.example.bankapp.repository;
 
-import com.example.bankapp.dto.ClientCreateDTO;
-import com.example.bankapp.dto.ClientDTO;
 import com.example.bankapp.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
@@ -26,6 +23,4 @@ public interface ClientRepository extends JpaRepository <Client, UUID> {
             "JOIN a.transactionCredit tCredit " +
             "WHERE (SIZE(tDebit) + SIZE(tCredit)) > :transaction")
     List<Client> getAllClientsWhereTransactionMoreThan(@Param("transaction") int transaction);
-
-
 }

@@ -10,7 +10,6 @@ import com.example.bankapp.service.exception.AccountNotFoundException;
 import com.example.bankapp.service.exception.ErrorMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -80,6 +79,4 @@ public class AccountServiceImpl implements AccountService {
         Account createdAccount = accountRepository.save(account);
         return accountMapper.toDTO(createdAccount);
     }
-
-
 }

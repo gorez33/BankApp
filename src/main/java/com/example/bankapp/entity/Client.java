@@ -5,13 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
-
 import static jakarta.persistence.CascadeType.*;
 
 @Entity
@@ -60,5 +56,4 @@ public class Client {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "manager_id", columnDefinition = "id")
     private Manager manager;
-
 }

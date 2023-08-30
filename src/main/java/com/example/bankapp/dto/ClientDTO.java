@@ -3,8 +3,6 @@ package com.example.bankapp.dto;
 
 
 public record ClientDTO(
-
-
         String id,
         String status,
         String taxCode,

@@ -56,7 +56,5 @@ public class Account {
 
     @OneToOne(mappedBy = "account", cascade = ALL)
     private Agreement agreement;
-
-
 }
 
